@@ -1,57 +1,294 @@
-.hero {
+/* Struttura Principale */
+.hero-section {
+  position: relative;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+  overflow: hidden;
+  background: #fff5f7; /* Sfondo rosa chiarissimo e pulito */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
 
+/* Cerchio sfumato moderno sullo sfondo (Rosa) */
+.background-glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 105, 180, 0.12) 0%, rgba(255,255,255,0) 70%);
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+/* Avatar con bordo rosa e ombra morbida */
+.avatar-img {
+  width: 135px;
+  height: 135px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0 10px 25px rgba(255, 105, 180, 0.15);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.avatar-img:hover {
+  transform: scale(1.06);
+}
+
+/* Titolo Scuro per massima leggibilità */
+.hero-title {
+  color: #2d132c;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Animazione Emojii */
+.wave-emoji {
+  display: inline-block;
+  animation: wave 2.5s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+  0% { transform: rotate( 0.0deg) }
+ 10% { transform: rotate(14.0deg) }
+ 20% { transform: rotate(-8.0deg) }
+ 30% { transform: rotate(14.0deg) }
+ 40% { transform: rotate(-4.0deg) }
+ 50% { transform: rotate(10.0deg) }
+100% { transform: rotate( 0.0deg) }
+}
+
+/* Sottotitolo Elegante (Rimosso l'effetto macchina da scrivere che spezzava il layout) */
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #805b7e; /* Grigio-rosa scuro ben leggibile */
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+/* Pulsante Rosa Intenso (Testo bianco ad alto contrasto) */
+.btn-primary {
+  display: inline-block;
+  padding: 0.8rem 2.2rem;
+  background-color: #ff4a85; /* Rosa fragola vivo */
+  color: #ffffff !important;  /* Forza il testo bianco visibile */
+  text-decoration: none;
+  border-radius: 10px; /* Angoli arrotondati moderni */
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 6px 16px rgba(255, 74, 133, 0.3);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #e0326c; /* Rosa più scuro al passaggio del mouse */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 74, 133, 0.45);
+}
+/* Stili per la Barra di Navigazione */
+.main-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: rgba(255, 245, 247, 0.85); /* Sfondo rosa coerente ma semi-trasparente */
+  backdrop-filter: blur(10px); /* Effetto vetro sfocato moderno */
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 105, 180, 0.1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2d132c;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #805b7e;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+/* Effetto hover e stato attivo con linea rosa inferiore */
+.nav-link:hover, .nav-link.active {
+  color: #ff4a85;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff4a85;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Modifica alla sezione hero per non farla finire sotto la navbar fissa */
+.hero-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 70px); /* Occupa tutto lo schermo rimanente */
+  margin-top: 70px; /* Spazio per la navbar */
+  overflow: hidden;
+  background: #fff5f7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.social-icon {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #805b7e;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  background: rgba(255, 105, 180, 0.05);
+}
+
+.social-icon:hover {
+  color: #ff4a85;
+  background: rgba(255, 105, 180, 0.1);
+  transform: translateY(-1px);
+}
+/* ==========================================
+   5. SEZIONE TECH STACK (COMPETENZE)
+   ========================================== */
+.tech-section {
+  padding: 5rem 2rem;
+  background-color: #ffffff; /* Stacco netto con sfondo bianco puro */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.tech-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #2d132c;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: #805b7e;
+  margin-bottom: 3.5rem;
+}
+
+/* Griglia Responsiva */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+/* Card Minimalista */
+.tech-card {
+  background: #fff5f7; /* Fondo rosa chiarissimo coordinato */
+  padding: 2.5rem 1.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 105, 180, 0.08);
+  box-shadow: 0 4px 12px rgba(45, 19, 44, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(255, 105, 180, 0.12);
+  background: #ffffff; /* La card diventa bianca pura al passaggio */
+  border-color: rgba(255, 105, 180, 0.2);
+}
+
+/* Icone segnaposto stilizzate */
+.tech-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.5rem auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  display: flex;
   align-items: center;
   justify-content: center;
-
-  text-align: center;
-
-  min-height: 80vh;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
-.avatar {
-  width: 180px;
-  height: 180px;
+/* Colori specifici di accento per le icone */
+.html-icon { color: #e34f26; border-bottom: 3px solid #e34f26; }
+.css-icon { color: #1572b6; border-bottom: 3px solid #1572b6; }
+.js-icon { color: #f7df1e; background-color: #323330; }
+.angular-icon { color: #dd0031; border-bottom: 3px solid #dd0031; }
 
-  border-radius: 50%;
-
-  object-fit: cover;
-
-  margin-bottom: 2rem;
-
-  border: 5px solid #2563eb;
-}
-
-.hero h1 {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
-
-.hero p {
-  max-width: 700px;
-
+.tech-card h3 {
   font-size: 1.2rem;
-  line-height: 1.8;
-
-  margin-bottom: 2rem;
-
-  color: #4b5563;
+  color: #2d132c;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-.btn {
-  background: #2563eb;
-  color: white;
-
-  padding: 1rem 2rem;
-
-  border-radius: 12px;
-
-  text-decoration: none;
-
-  transition: 0.3s;
+.tech-card p {
+  font-size: 0.95rem;
+  color: #805b7e;
+  line-height: 1.5;
 }
 
-.btn:hover {
-  background: #1d4ed8;
-}
+

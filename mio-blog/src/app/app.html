@@ -1,5 +1,7 @@
-<app-navbar />
+<!-- La navbar rimane fissa in cima su tutte le pagine -->
+<app-navbar></app-navbar>
 
-<main class="container">
-  <router-outlet />
+<!-- Qui dentro Angular caricherà dinamicamente home, blog o about in base all'URL -->
+<main>
+  <router-outlet></router-outlet>
 </main>

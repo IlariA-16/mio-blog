@@ -1,22 +1,74 @@
-<section class="hero">
+<!-- Barra di Navigazione Superiore -->
+<header class="main-navbar">
+  <div class="nav-container">
+    <a routerLink="/" class="nav-logo">Ilaria.dev</a>
+    <nav class="nav-links">
+      <a routerLink="/" class="nav-link active">Home</a>
+      <a routerLink="/blog" class="nav-link">Blog</a>
+      <a routerLink="/chi-sono" class="nav-link">Chi Sono</a>
+    </nav>
+  </div>
+</header>
 
-  <img
-    src="https://i.pravatar.cc/300"
-    alt="Ilaria"
-    class="avatar"
-  />
+<!-- Tua sezione Hero esistente -->
+<section class="hero-section">
+  <div class="background-glow"></div>
+  <div class="hero-content">
+    <div class="avatar-container">
+      <img src="profilo.jpg" alt="Ilaria" class="avatar-img" />
+    </div>
+    <h1 class="hero-title">
+      Ciao, sono Ilaria <span class="wave-emoji">👋</span>
+    </h1>
+    <p class="hero-subtitle">
+      Junior Frontend Developer
+    </p>
+    <div class="cta-container">
+      <a [routerLink]="['/blog']" class="btn-primary">Leggi il Blog</a>
+    </div>
 
-  <h1>
-    Ciao, sono Ilaria 👋
-  </h1>
-
-  <p>
-    Junior Frontend Developer appassionata di Angular,
-    design moderno e sviluppo web.
-  </p>
-
-  <a routerLink="/blog" class="btn">
-    Leggi il Blog
-  </a>
-
+<!-- Nuova sezione Social Links -->
+ <div class="social-links">
+  <a [routerLink]="['https://github.com']" target="_blank" class="social-icon">GitHub</a>
+  <a [routerLink]="['https://linkedin.com']" target="_blank" class="social-icon">LinkedIn</a>
+</div>
+</div>
 </section>
+<!-- Sezione Competenze Tecniche -->
+<section class="tech-section">
+  <div class="tech-container">
+    <h2 class="section-title">Le mie competenze</h2>
+    <p class="section-subtitle">Le tecnologie e gli strumenti che utilizzo per dare vita ai progetti</p>
+    
+    <div class="tech-grid">
+      <!-- Card HTML -->
+      <div class="tech-card">
+        <div class="tech-icon-wrapper html-icon">HTML5</div>
+        <h3>HTML5</h3>
+        <p>Struttura semantica e accessibile</p>
+      </div>
+
+      <!-- Card CSS -->
+      <div class="tech-card">
+        <div class="tech-icon-wrapper css-icon">CSS3</div>
+        <h3>CSS3 & Flexbox</h3>
+        <p>Layout moderni, responsive e animazioni</p>
+      </div>
+
+      <!-- Card JavaScript -->
+      <div class="tech-card">
+        <div class="tech-icon-wrapper js-icon">JS</div>
+        <h3>JavaScript</h3>
+        <p>Logica dinamica ed ES6+ moderno</p>
+      </div>
+
+      <!-- Card Angular -->
+      <div class="tech-card">
+        <div class="tech-icon-wrapper angular-icon">NG</div>
+        <h3>Angular</h3>
+        <p>Architettura a componenti e SPA scalabili</p>
+      </div>
+    </div>
+  </div>
+</section>
+

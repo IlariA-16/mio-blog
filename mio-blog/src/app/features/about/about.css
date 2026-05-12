@@ -1,0 +1,116 @@
+/* Contenitore Principale con allineamento navbar */
+.about-container {
+  max-width: 1100px;
+  margin: 70px auto 0 auto;
+  padding: 4rem 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: calc(100vh - 70px);
+  background-color: #fff5f7; /* Sfondo rosa coerente */
+}
+
+/* Intestazione */
+.about-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  color: #2d132c;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.about-subtitle {
+  font-size: 1.1rem;
+  color: #805b7e;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Layout a Due Colonne per Desktop */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .about-layout {
+    grid-template-columns: 1fr 1.2fr;
+    align-items: start;
+  }
+}
+
+/* Card Biografia */
+.bio-card {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 105, 180, 0.08);
+  box-shadow: 0 4px 15px rgba(45, 19, 44, 0.03);
+}
+
+.bio-card h2 {
+  font-size: 1.5rem;
+  color: #2d132c;
+  margin-bottom: 1rem;
+}
+
+.bio-card p {
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.bio-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Griglia Valori Destra */
+.values-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.value-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #ff4a85; /* Dettaglio rosa di accento */
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.value-card:hover {
+  transform: translateX(5px);
+  background: #ffffff;
+}
+
+.value-number {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: rgba(255, 74, 133, 0.4);
+  font-family: monospace;
+}
+
+.value-card h3 {
+  font-size: 1.15rem;
+  color: #2d132c;
+  margin-bottom: 0.25rem;
+  grid-column: 2;
+}
+
+.value-card p {
+  font-size: 0.95rem;
+  color: #805b7e;
+  line-height: 1.5;
+  grid-column: 2;
+}
