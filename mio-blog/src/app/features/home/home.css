@@ -1,22 +1,5 @@
 /* ==========================================
-   1. RESET E VARIABILI DI PALETTE ROSA
-   ========================================== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: #2b1325;
-  /* Sfondo globale gradiente continuo: scorre uniforme senza stacchi bianchi */
-  background: linear-gradient(to bottom, #fff0f2 0%, #fbe4e8 40%, #f9ecee 70%, #f4e3e6 100%);
-  background-attachment: scroll;
-}
-
-/* ==========================================
-   2. HERO SECTION CON EFFETTI DIGITALI
+   1. HERO SECTION CON EFFETTI DIGITALI
    ========================================== */
 .hero-section {
   position: relative;

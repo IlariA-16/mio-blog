@@ -17,7 +17,7 @@ body {
   position: relative;
   width: 100%;
   min-height: calc(100vh - 70px);
-  margin-top: 70px !important; /* Sicurezza sotto la navbar fissa */
+  margin-top: 70px; /* Sicurezza sotto la navbar fissa */
   padding: 5rem 2rem;
   background: linear-gradient(to bottom, #fff0f2 0%, #fbe4e8 40%, #f9ecee 70%, #f4e3e6 100%) !important;
   overflow: hidden;
@@ -28,7 +28,7 @@ body {
   position: absolute;
   inset: 0;
   background-image: linear-gradient(rgba(255, 74, 133, 0.04) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255, 74, 133, 0.04) 1px, transparent 1px);
+  linear-gradient(90deg, rgba(255, 74, 133, 0.04) 1px, transparent 1px);
   background-size: 40px 40px;
   z-index: 1;
 }
