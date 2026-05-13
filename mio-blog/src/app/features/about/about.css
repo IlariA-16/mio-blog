@@ -1,116 +1,296 @@
-/* Contenitore Principale con allineamento navbar */
+/* ==========================================
+   1. STRUTTURA DEL FONDALE (GRADIENTE ROSA BLINDATO)
+   ========================================== */
 .about-container {
-  max-width: 1100px;
-  margin: 70px auto 0 auto;
-  padding: 4rem 2rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  position: relative;
+  width: 100%;
   min-height: calc(100vh - 70px);
-  background-color: #fff5f7; /* Sfondo rosa coerente */
+  margin-top: 70px !important; /* Spazio di sicurezza sotto la navbar fissa */
+  padding: 5rem 2rem;
+  background: linear-gradient(to bottom, #fff0f2 0%, #fbe4e8 40%, #f9ecee 70%, #f4e3e6 100%) !important;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Intestazione */
-.about-header {
+/* Pattern geometrico tech di sfondo a linee */
+.tech-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 74, 133, 0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 74, 133, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 1;
+}
+
+/* Cerchi di luce soffusi ambientali */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 1;
+  opacity: 0.5;
+}
+.orb-1 { width: 450px; height: 450px; background: rgba(255, 105, 180, 0.18); top: -5%; left: 5%; }
+.orb-2 { width: 350px; height: 350px; background: rgba(0, 216, 255, 0.08); bottom: 10%; right: 5%; }
+
+/* Contenitore centrale per la finestra software */
+.about-standalone-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
   text-align: center;
-  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.about-title {
-  font-size: 2.5rem;
-  color: #2d132c;
-  font-weight: 700;
+/* Badge di stato superiore stile pillola */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #ffffff;
+  border: 1px solid rgba(255, 74, 133, 0.15);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #3d223a;
+  margin-bottom: 2rem;
+  font-family: monospace;
+  box-shadow: 0 4px 15px rgba(45, 19, 44, 0.02);
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Titoli principali della pagina esterni al terminale */
+.contact-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #2b1629;
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
 }
 
-.about-subtitle {
-  font-size: 1.1rem;
-  color: #805b7e;
-  max-width: 600px;
-  margin: 0 auto;
+.contact-subtitle {
+  color: #7d657a;
+  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
 }
 
-/* Layout a Due Colonne per Desktop */
-.about-layout {
+/* ==========================================
+   2. FINESTRA TERMINALE (STILE CRUSCOTTO INTERATTIVO)
+   ========================================== */
+.terminal-window {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(45, 19, 44, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(45, 19, 44, 0.04);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.terminal-header {
+  background: #fdf6f7;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(45, 19, 44, 0.06);
+}
+
+.term-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.term-dot.red { background: #ff5f56; }
+.term-dot.yellow { background: #ffbd2e; }
+.term-dot.green { background: #27c93f; }
+
+.terminal-title {
+  color: #7d657a;
+  font-size: 0.85rem;
+  font-family: monospace;
+  margin-left: 6px;
+  display: inline-block;
+}
+
+.terminal-body {
+  padding: 2.5rem;
+  background-color: #ffffff;
+}
+
+/* ==========================================
+   3. SCHEDULAZIONE CONTENUTI INTERNI (INTRODUZIONE)
+   ========================================== */
+.about-hero-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+  grid-template-columns: 0.6fr 1.4fr;
+  gap: 2.5rem;
+  align-items: start;
+  text-align: left;
 }
 
-@media (min-width: 768px) {
-  .about-layout {
-    grid-template-columns: 1fr 1.2fr;
-    align-items: start;
+@media (max-width: 650px) {
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 }
 
-/* Card Biografia */
-.bio-card {
-  background: #ffffff;
-  padding: 2.5rem;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 105, 180, 0.08);
-  box-shadow: 0 4px 15px rgba(45, 19, 44, 0.03);
+.about-image-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
-.bio-card h2 {
-  font-size: 1.5rem;
-  color: #2d132c;
+.about-img {
+  width: 100%;
+  max-width: 170px;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(45, 19, 44, 0.08);
+  box-shadow: 0 8px 20px rgba(45, 19, 44, 0.02);
+}
+
+.badge {
+  display: inline-block;
+  background: #fff0f2;
+  border: 1px solid rgba(255, 74, 133, 0.2);
+  color: #ff4a85;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.subtitle-about-page {
+  font-family: monospace;
+  color: #ff4a85;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-top: 0.5rem;
   margin-bottom: 1rem;
 }
 
-.bio-card p {
-  color: #64748b;
-  font-size: 1rem;
-  line-height: 1.7;
-  margin-bottom: 1.2rem;
+.about-p-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #3d223a;
+  margin-bottom: 1rem;
 }
 
-.bio-card p:last-child {
-  margin-bottom: 0;
+/* Elemento divisore pulito */
+.about-divider {
+  border: 0;
+  height: 1px;
+  background: rgba(45, 19, 44, 0.08);
+  margin: 2.5rem 0;
 }
 
-/* Griglia Valori Destra */
-.values-grid {
+/* ==========================================
+   4. STRUTTURA PERCORSO (TIMELINE INTERNA)
+   ========================================== */
+.about-inner-title {
+  font-family: monospace;
+  font-size: 1.2rem;
+  color: #2b1629;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  font-weight: 700;
+}
+
+.about-timeline-stack {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
+  text-align: left;
 }
 
-.value-card {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(5px);
-  padding: 1.5rem 2rem;
-  border-radius: 12px;
-  border-left: 4px solid #ff4a85; /* Dettaglio rosa di accento */
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1.5rem;
-  align-items: center;
-  transition: transform 0.2s ease;
+.about-timeline-item {
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 2px solid rgba(255, 74, 133, 0.3);
 }
 
-.value-card:hover {
-  transform: translateX(5px);
-  background: #ffffff;
-}
-
-.value-number {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: rgba(255, 74, 133, 0.4);
+.about-time-tag {
   font-family: monospace;
-}
-
-.value-card h3 {
-  font-size: 1.15rem;
-  color: #2d132c;
+  font-size: 0.8rem;
+  color: #ff4a85;
+  font-weight: 700;
+  display: block;
   margin-bottom: 0.25rem;
-  grid-column: 2;
 }
 
-.value-card p {
+.about-timeline-item h3 {
+  font-size: 1.15rem;
+  color: #2b1629;
+  margin-bottom: 0.15rem;
+  font-weight: 700;
+}
+
+.about-inst-tag {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #007280;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.about-timeline-item p {
   font-size: 0.95rem;
-  color: #805b7e;
+  color: #594155;
+  line-height: 1.55;
+}
+
+/* ==========================================
+   5. COMPOTIMENTI SOFT SKILLS (TASSELLI BENTO)
+   ========================================== */
+.about-skills-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.about-skill-box {
+  background: #fff9fa;
+  border: 1px solid rgba(45, 19, 44, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.about-skill-box:hover {
+  border-color: rgba(255, 74, 133, 0.2);
+}
+
+.about-skill-box h4 {
+  font-size: 1rem;
+  color: #2b1629;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.about-skill-box p {
+  font-size: 0.9rem;
+  color: #594155;
   line-height: 1.5;
-  grid-column: 2;
 }

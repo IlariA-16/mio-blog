@@ -1,35 +1,101 @@
 <div class="about-container">
-  <header class="about-header">
-    <h1 class="about-title">Chi Sono</h1>
-    <p class="about-subtitle">Scopri il mio percorso, le mie passioni e cosa mi spinge a scrivere codice ogni giorno.</p>
-  </header>
+  <!-- Tag decorativi per lo sfondo tech a gradiente rosa coerente con la Home -->
+  <div class="tech-grid-overlay"></div>
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
 
-  <div class="about-layout">
-    <!-- Blocco Bio Breve -->
-    <div class="bio-card">
-      <h2>La mia storia</h2>
-      <p>Ciao! Sono Ilaria, una Junior Frontend Developer con la passione per il design pulito, le interfacce intuitive e l'architettura logica. Mi piace unire la creatività visiva alla precisione dello sviluppo software.</p>
-      <p>Il mio obiettivo è trasformare idee complesse in esperienze web fluide, accessibili e d'impatto, curando ogni singolo pixel senza mai perdere di vista le performance del codice.</p>
+  <!-- Contenitore centrale allineato per la finestra -->
+  <div class="about-standalone-container">
+    <div class="status-badge">
+      <span class="pulse-dot"></span> // profile_active_session
     </div>
+    
+    <h1 class="contact-title">Chi Sono</h1>
+    <p class="contact-subtitle">Il mio profilo e le tappe fondamentali della mia crescita tecnica.</p>
 
-    <!-- Griglia dei Valori/Approccio -->
-    <div class="values-grid">
-      <div class="value-card">
-        <div class="value-number">01</div>
-        <h3>Curiosità</h3>
-        <p>Il frontend evolve ogni giorno. Amo sperimentare nuove librerie, pattern di design e aggiornamenti del framework.</p>
+    <!-- Finestra Terminale Identica alla Pagina Contatti -->
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="term-dot red"></span>
+        <span class="term-dot yellow"></span>
+        <span class="term-dot green"></span>
+        <span class="terminal-title">ilaria-taddei@about-module:~</span>
       </div>
+      
+      <div class="terminal-body" style="font-family: inherit;">
+        
+        <!-- Sezione Introduzione con Foto Profilo Affiancata -->
+        <div class="about-hero-grid">
+          <div class="about-image-wrapper">
+            <img src="profilo.jpg" alt="Ilaria Taddei" class="about-img" />
+          </div>
+          <div class="about-intro-text">
+            <span class="badge" style="margin-bottom: 0.5rem;">Junior Developer</span>
+            <h2 style="color: #2b1629; margin-bottom: 0.25rem;">Ilaria Taddei</h2>
+            <p class="subtitle-about-page">Junior Frontend Developer | Sviluppatrice Software in Formazione</p>
+            <p class="about-p-text">
+              Sono una sviluppatrice software junior all'inizio del mio percorso professionale nel mondo del tech. Affronto questa nuova sfida con grandissima curiosità, entusiasmo e il desiderio di mettermi in gioco in un ambiente strutturato.
+            </p>
+            <p class="about-p-text">
+              Sto muovendo i miei primi passi pratici nello sviluppo web partendo da solide basi teoriche. Ho scelto di focalizzare i miei primi progetti personali sul Front-end, appassionandomi all'architettura di <strong>Angular</strong> e muovendo i primi passi nello studio della libreria <strong>React</strong>. Cerco un'opportunità di stage o un ruolo junior dove poter affiancare professionisti esperti e accelerare la mia crescita tecnica.
+            </p>
+          </div>
+        </div>
 
-      <div class="value-card">
-        <div class="value-number">02</div>
-        <h3>Dettaglio</h3>
-        <p>Dalle transizioni CSS all'accessibilità del codice HTML, credo che i piccoli dettagli facciano una grande differenza.</p>
-      </div>
+        <hr class="about-divider" />
 
-      <div class="value-card">
-        <div class="value-number">03</div>
-        <h3>Clean Code</h3>
-        <p>Scrivo codice ordinato, modulare e facile da mantenere, sfruttando al massimo le potenzialità di Angular.</p>
+        <!-- Sezione Percorso Formativo (Timeline) -->
+        <div class="about-section-block">
+          <h2 class="about-inner-title">// Il mio percorso</h2>
+          <div class="about-timeline-stack">
+            
+            <div class="about-timeline-item">
+              <span class="about-time-tag">2025 - In Corso</span>
+              <h3>Qualifica Professionale "Sviluppatore Software"</h3>
+              <span class="about-inst-tag">ASEV (Corso di Qualifica)</span>
+              <p>Il mio punto di partenza formale. Un percorso intensivo strutturato per comprendere la logica di programmazione, le basi dell'ingegneria del software, i flussi di testing e la manutenzione del codice. Rappresenta l'aula in cui sto trasformando la passione in competenze spendibili.</p>
+            </div>
+            
+            <div class="about-timeline-item">
+              <span class="about-time-tag">Primi Passi Front-end</span>
+              <h3>Studio delle Interfacce & Logica Client-side</h3>
+              <p>Consolidamento autonomo e guidato dei pilastri fondamentali del web: HTML5 e CSS3 per il responsive design, le primi manipolazioni del DOM con JavaScript moderno (ES6+) e l'introduzione alla strutturazione del codice con TypeScript.</p>
+            </div>
+
+            <div class="about-timeline-item">
+              <span class="about-time-tag">Primi Approcci Logici</span>
+              <h3>Introduzione al Back-end & Basi di Dati</h3>
+              <p>Primi esercizi di programmazione per comprendere la logica computazionale e i paradigmi a oggetti tramite Python e C#/.NET. Primi approcci alla gestione dei server con Node.js e alla manipolazione dei database relazionali tramite query base in MySQL.</p>
+            </div>
+            
+          </div>
+        </div>
+
+        <hr class="about-divider" />
+
+        <!-- Sezione Valori / Attitudini -->
+        <div class="about-section-block">
+          <h2 class="about-inner-title">// Cosa porto nel team</h2>
+          <div class="about-skills-row">
+            
+            <div class="about-skill-box">
+              <h4>📚 Desiderio di Apprendere</h4>
+              <p>Dedico ogni giorno tempo allo studio e alla sperimentazione. Ho un'alta capacità di apprendimento e mi adatto rapidamente a nuovi framework e metodologie aziendali.</p>
+            </div>
+            
+            <div class="about-skill-box">
+              <h4>🎨 Precisione e Cura</h4>
+              <p>Affronto i compiti assegnati con massimo ordine e attenzione ai dettagli. Mi impegno per scrivere codice pulito, leggibile e rispettoso delle specifiche grafiche fornite.</p>
+            </div>
+            
+            <div class="about-skill-box">
+              <h4>🤝 Ascolto e Collaborazione</h4>
+              <p>So ascoltare e fare tesoro dei feedback dei colleghi senior. Considero il confronto e il lavoro di squadra i canali fondamentali per correggere i miei errori e crescere professionalmente.</p>
+            </div>
+            
+          </div>
+        </div>
+
       </div>
     </div>
   </div>

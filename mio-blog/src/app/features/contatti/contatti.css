@@ -1,0 +1,97 @@
+/* Importa direttamente gli stili tecnologici della home page */
+@import '../home/home.css';
+
+/* Customizzazione interna del form dentro la finestra terminale */
+.form-group-tech {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group-tech label {
+  color: #3d223a;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.form-group-tech input, 
+.form-group-tech textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #fffafb;
+  border: 2px solid rgba(45, 19, 44, 0.08);
+  border-radius: 10px;
+  color: #2b1629;
+  font-size: 0.95rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-group-tech input:focus, 
+.form-group-tech textarea:focus {
+  outline: none;
+  border-color: #ff4a85;
+  box-shadow: 0 0 10px rgba(255, 74, 133, 0.1);
+}
+
+/* Gestione errori di validazione */
+.form-group-tech input.input-error, 
+.form-group-tech textarea.input-error {
+  border-color: #ef4444;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.08);
+}
+
+.error-msg-tech {
+  color: #ef4444;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 0.15rem;
+}
+
+/* Bottone di invio del modulo: identico allo stile dei pulsanti bianchi della home */
+.btn-tech-submit-page {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2rem;
+  background: #ffffff;
+  border: 2px solid rgba(45, 19, 44, 0.12);
+  color: #000000;
+  font-family: monospace;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(45, 19, 44, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-tech-submit-page:hover {
+  background: #ff4a85;
+  border-color: #ff4a85;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 74, 133, 0.25);
+}
+
+/* Avviso di successo dell'invio */
+.success-alert {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid #10b981;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  color: #065f46;
+  font-size: 0.95rem;
+}
+
+.success-icon {
+  font-weight: bold;
+  font-size: 1.1rem;
+}

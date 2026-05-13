@@ -1,294 +1,417 @@
-/* Struttura Principale */
+/* ==========================================
+   1. RESET E VARIABILI DI PALETTE ROSA
+   ========================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #2b1325;
+  /* Sfondo globale gradiente continuo: scorre uniforme senza stacchi bianchi */
+  background: linear-gradient(to bottom, #fff0f2 0%, #fbe4e8 40%, #f9ecee 70%, #f4e3e6 100%);
+  background-attachment: scroll;
+}
+
+/* ==========================================
+   2. HERO SECTION CON EFFETTI DIGITALI
+   ========================================== */
 .hero-section {
   position: relative;
+  min-height: calc(100vh - 70px);
+  margin-top: 70px;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 75vh;
-  overflow: hidden;
-  background: #fff5f7; /* Sfondo rosa chiarissimo e pulito */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Cerchio sfumato moderno sullo sfondo (Rosa) */
-.background-glow {
+/* Pattern geometrico tech fine (Griglia a righe) */
+.tech-grid-overlay {
   position: absolute;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(255, 105, 180, 0.12) 0%, rgba(255,255,255,0) 70%);
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 74, 133, 0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 74, 133, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
   z-index: 1;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-}
-
-/* Avatar con bordo rosa e ombra morbida */
-.avatar-img {
-  width: 135px;
-  height: 135px;
+/* Orbs luminose di sfondo per profondità */
+.glow-orb {
+  position: absolute;
   border-radius: 50%;
-  border: 4px solid #ffffff;
-  box-sizing: border-box;
-  box-shadow: 0 10px 25px rgba(255, 105, 180, 0.15);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: blur(100px);
+  z-index: 1;
+  opacity: 0.5;
+}
+.orb-1 { width: 450px; height: 450px; background: rgba(255, 105, 180, 0.2); top: -5%; left: 10%; }
+.orb-2 { width: 350px; height: 350px; background: rgba(0, 216, 255, 0.1); bottom: 5%; right: 10%; }
+
+.hero-container-fullscreen {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.avatar-img:hover {
-  transform: scale(1.06);
-}
-
-/* Titolo Scuro per massima leggibilità */
-.hero-title {
-  color: #2d132c;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Animazione Emojii */
-.wave-emoji {
-  display: inline-block;
-  animation: wave 2.5s infinite;
-  transform-origin: 70% 70%;
-}
-
-@keyframes wave {
-  0% { transform: rotate( 0.0deg) }
- 10% { transform: rotate(14.0deg) }
- 20% { transform: rotate(-8.0deg) }
- 30% { transform: rotate(14.0deg) }
- 40% { transform: rotate(-4.0deg) }
- 50% { transform: rotate(10.0deg) }
-100% { transform: rotate( 0.0deg) }
-}
-
-/* Sottotitolo Elegante (Rimosso l'effetto macchina da scrivere che spezzava il layout) */
-.hero-subtitle {
-  font-size: 1.2rem;
-  color: #805b7e; /* Grigio-rosa scuro ben leggibile */
+/* Status badge pillola */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #ffffff;
+  border: 1px solid rgba(255, 74, 133, 0.15);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #3d223a;
   margin-bottom: 2rem;
-  font-weight: 400;
+  font-family: monospace;
+  box-shadow: 0 4px 15px rgba(45, 19, 44, 0.02);
 }
 
-/* Pulsante Rosa Intenso (Testo bianco ad alto contrasto) */
-.btn-primary {
-  display: inline-block;
-  padding: 0.8rem 2.2rem;
-  background-color: #ff4a85; /* Rosa fragola vivo */
-  color: #ffffff !important;  /* Forza il testo bianco visibile */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.hero-title-modern {
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #2b1629;
+  margin: 0 0 2.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ff4a85 0%, #a43a6d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Finestra Terminale Epura */
+.terminal-window {
+  width: 100%;
+  max-width: 600px;
+  background: #ffffff;
+  border: 1px solid rgba(45, 19, 44, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(45, 19, 44, 0.05);
+  text-align: left;
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+
+.terminal-header {
+  background: #fdf6f7;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(45, 19, 44, 0.06);
+}
+
+.term-dot { width: 10px; height: 10px; border-radius: 50%; }
+.term-dot.red { background: #ff5f56; }
+.term-dot.yellow { background: #ffbd2e; }
+.term-dot.green { background: #27c93f; }
+
+.terminal-title { color: #7d657a; font-size: 0.8rem; font-family: monospace; margin-left: 4px; }
+.terminal-body { padding: 1.5rem 2rem; font-family: monospace; font-size: 0.95rem; line-height: 1.6; background-color: #ffffff; }
+.line { margin: 0 0 0.5rem 0; color: #3d223a; font-weight: 500; }
+.cmd-keyword { color: #d81b60; font-weight: bold; } 
+.cmd-string { color: #007280; }  
+.cmd-output { color: #8c7388; font-style: italic; font-weight: 400; }
+.cmd-cursor { font-weight: bold; color: #ff4a85; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Gruppi Bottoni di Azione Hero */
+.hero-actions-group { display: flex; align-items: center; gap: 1.5rem; }
+
+.btn-tech-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 2.5rem;
+  background: #ffffff; /* Sfondo bianco di partenza */
+  color: #000000 !important; /* Forza il testo nero iniziale */
   text-decoration: none;
-  border-radius: 10px; /* Angoli arrotondati moderni */
+  border-radius: 12px;
   font-weight: 600;
   font-size: 1rem;
-  box-shadow: 0 6px 16px rgba(255, 74, 133, 0.3);
+  box-sizing: border-box;
+  border: 2px solid rgba(45, 19, 44, 0.12); /* Bordo nitido coordinato */
+  box-shadow: 0 4px 14px rgba(45, 19, 44, 0.05);
   transition: all 0.2s ease-in-out;
 }
 
-.btn-primary:hover {
-  background-color: #e0326c; /* Rosa più scuro al passaggio del mouse */
+.btn-tech-primary:hover {
+  background: #ff4a85;
+  border-color: #ff4a85;
+  color: #ffffff !important; /* Il testo e la freccia passano a bianco */
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 74, 133, 0.45);
-}
-/* Stili per la Barra di Navigazione */
-.main-navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 70px;
-  background-color: rgba(255, 245, 247, 0.85); /* Sfondo rosa coerente ma semi-trasparente */
-  backdrop-filter: blur(10px); /* Effetto vetro sfocato moderno */
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 105, 180, 0.1);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-shadow: 0 6px 20px rgba(255, 74, 133, 0.25);
 }
 
-.nav-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.arrow-icon { 
+  transition: transform 0.2s ease-in-out; 
 }
 
-.nav-logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #2d132c;
+.btn-tech-primary:hover .arrow-icon { 
+  transform: translateX(4px); 
+}
+.hero-social-group { display: flex; gap: 0.75rem; }
+
+.btn-tech-icon {
+  padding: 0.9rem 1.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(45, 19, 44, 0.08);
+  border-radius: 12px;
   text-decoration: none;
-  letter-spacing: -0.01em;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-link {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #805b7e;
-  text-decoration: none;
-  transition: color 0.2s ease;
-  position: relative;
-  padding: 0.25rem 0;
-}
-
-/* Effetto hover e stato attivo con linea rosa inferiore */
-.nav-link:hover, .nav-link.active {
-  color: #ff4a85;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #ff4a85;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-
-.nav-link:hover::after, .nav-link.active::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-/* Modifica alla sezione hero per non farla finire sotto la navbar fissa */
-.hero-section {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: calc(100vh - 70px); /* Occupa tutto lo schermo rimanente */
-  margin-top: 70px; /* Spazio per la navbar */
-  overflow: hidden;
-  background: #fff5f7;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.social-icon {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #805b7e;
-  text-decoration: none;
+  color: #4a2d46;
+  font-family: monospace;
+  font-size: 0.9rem;
   transition: all 0.2s ease;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  background: rgba(255, 105, 180, 0.05);
+  box-shadow: 0 4px 10px rgba(45, 19, 44, 0.02);
 }
 
-.social-icon:hover {
-  color: #ff4a85;
-  background: rgba(255, 105, 180, 0.1);
-  transform: translateY(-1px);
-}
+.btn-tech-icon:hover { border-color: #ff4a85; color: #ff4a85; transform: translateY(-2px); }
+
 /* ==========================================
-   5. SEZIONE TECH STACK (COMPETENZE)
+   3. SEZIONE COMPETENZE (BENTO GRID MODERNA)
    ========================================== */
 .tech-section {
-  padding: 5rem 2rem;
-  background-color: #ffffff; /* Stacco netto con sfondo bianco puro */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-.tech-container {
-  max-width: 1100px;
-  margin: 0 auto;
+  padding: 6rem 2rem;
   text-align: center;
 }
 
-.section-title {
-  font-size: 2rem;
-  color: #2d132c;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.01em;
-}
+.tech-container { max-width: 1140px; margin: 0 auto; }
+.section-title { font-size: 2.2rem; color: #2b1629; font-weight: 700; margin-bottom: 0.5rem; }
+.section-subtitle { font-size: 1.05rem; color: #7d657a; margin-bottom: 3.5rem; }
 
-.section-subtitle {
-  font-size: 1.05rem;
-  color: #805b7e;
-  margin-bottom: 3.5rem;
-}
-
-/* Griglia Responsiva */
+/* Configurazione Bento Grid asimmetrica avanzata */
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem;
 }
 
-/* Card Minimalista */
+/* Card Solida Bianca */
 .tech-card {
-  background: #fff5f7; /* Fondo rosa chiarissimo coordinato */
+  background: #ffffff;
   padding: 2.5rem 1.5rem;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 105, 180, 0.08);
-  box-shadow: 0 4px 12px rgba(45, 19, 44, 0.02);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 20px;
+  border: 1px solid rgba(45, 19, 44, 0.05);
+  box-shadow: 0 10px 25px rgba(45, 19, 44, 0.02);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Distribuzione Bento: Angular e React più grandi per rompere lo schema ripetitivo */
+.tech-grid .tech-card:nth-child(4),
+.tech-grid .tech-card:nth-child(5) {
+  grid-column: span 3;
+}
+.tech-grid .tech-card:nth-child(1),
+.tech-grid .tech-card:nth-child(2),
+.tech-grid .tech-card:nth-child(3) {
+  grid-column: span 2;
+}
+
+@media (max-width: 900px) {
+  .tech-grid .tech-card:nth-child(n) { grid-column: span 3; }
+}
+@media (max-width: 550px) {
+  .tech-grid .tech-card:nth-child(n) { grid-column: span 6; }
 }
 
 .tech-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(255, 105, 180, 0.12);
-  background: #ffffff; /* La card diventa bianca pura al passaggio */
-  border-color: rgba(255, 105, 180, 0.2);
+  transform: translateY(-5px);
+  border-color: rgba(255, 74, 133, 0.3);
+  box-shadow: 0 15px 35px rgba(255, 74, 133, 0.08);
 }
 
-/* Icone segnaposto stilizzate */
 .tech-icon-wrapper {
   width: 60px;
   height: 60px;
   margin: 0 auto 1.5rem auto;
-  background-color: #ffffff;
-  border-radius: 12px;
+  background-color: #fff9fa;
+  border: 1px solid rgba(45, 19, 44, 0.04);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 0.9rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
-/* Colori specifici di accento per le icone */
 .html-icon { color: #e34f26; border-bottom: 3px solid #e34f26; }
 .css-icon { color: #1572b6; border-bottom: 3px solid #1572b6; }
-.js-icon { color: #f7df1e; background-color: #323330; }
+.js-icon { color: #a38a00; border-bottom: 3px solid #f7df1e; } 
 .angular-icon { color: #dd0031; border-bottom: 3px solid #dd0031; }
+.react-icon { color: #00718f; border-bottom: 3px solid #00d8ff; } 
 
-.tech-card h3 {
+.tech-card h3 { font-size: 1.25rem; color: #2b1629; font-weight: 600; margin-bottom: 0.5rem; }
+.tech-card p { font-size: 0.95rem; color: #594155; line-height: 1.5; margin: 0; }
+
+/* ==========================================
+   4. SEZIONE PROGETTI
+   ========================================== */
+.projects-section {
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.projects-container { max-width: 1100px; margin: 0 auto; }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.project-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(45, 19, 44, 0.02);
+  text-align: left;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+  border: 1px solid rgba(45, 19, 44, 0.05);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 74, 133, 0.3);
+  box-shadow: 0 15px 35px rgba(255, 74, 133, 0.06);
+}
+
+.project-image-placeholder {
+  height: 180px;
+  background: linear-gradient(135deg, #fff0f2 0%, #fbe4e8 100%);
+  border-bottom: 1px solid rgba(45, 19, 44, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.2rem;
-  color: #2d132c;
+  color: #2b1629;
   font-weight: 600;
-  margin-bottom: 0.5rem;
 }
 
-.tech-card p {
-  font-size: 0.95rem;
-  color: #805b7e;
-  line-height: 1.5;
+.project-info { padding: 1.5rem; }
+.project-info h3 { color: #2b1629; margin-bottom: 0.5rem; font-size: 1.3rem; }
+.project-info p { color: #594155; font-size: 0.95rem; line-height: 1.5; margin-bottom: 1rem; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+
+.tag {
+  background: #fff0f2;
+  color: #ff4a85;
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
+.project-link { color: #ff4a85; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+.project-link:hover { text-decoration: underline; }
 
+/* ==========================================
+   5. CTA FINALE & BOTTONI DI CHIUSURA COMPLETI
+   ========================================== */
+.home-cta-footer {
+  padding: 5rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(45, 19, 44, 0.05);
+}
+
+.home-cta-footer h2 { color: #2b1629; font-size: 2rem; margin-top: 0; margin-bottom: 0.5rem; }
+.home-cta-footer p { color: #4a2d46; margin-bottom: 2rem; }
+
+.footer-buttons { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 1.5rem; 
+  margin-bottom: 3rem; 
+}
+
+@media (max-width: 480px) { .footer-buttons { flex-direction: column; gap: 1rem; } }
+
+/* 1. Pulsante Principale (Apri Modulo Contatti) - Testo Nero */
+.home-cta-footer .btn-tech-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2rem;
+  background: #ffffff;
+  border: 2px solid rgba(45, 19, 44, 0.12); /* Bordo leggermente più scuro per risaltare */
+  color: #000000 !important; /* Forza il testo nero iniziale */
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-sizing: border-box;
+  box-shadow: 0 4px 14px rgba(45, 19, 44, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+/* All'hover diventa rosa e il testo passa a bianco */
+.home-cta-footer .btn-tech-primary:hover {
+  background: #ff4a85;
+  border-color: #ff4a85;
+  color: #ffffff !important; /* Il testo diventa bianco */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 74, 133, 0.25);
+}
+
+/* 2. Pulsante Secondario (Invia Email) - Testo Nero */
+.btn-email-footer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2rem;
+  background: #ffffff;
+  border: 2px solid rgba(45, 19, 44, 0.12);
+  color: #000000; /* Testo nero iniziale */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 12px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 14px rgba(45, 19, 44, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+/* All'hover diventa rosa e il testo passa a bianco */
+.btn-email-footer:hover {
+  background: #ff4a85;
+  border-color: #ff4a85;
+  color: #ffffff; /* Il testo diventa bianco */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 74, 133, 0.25);
+}
+
+.footer-credits { margin: 0 !important; font-family: monospace; font-size: 0.85rem; color: #7d657a !important; }

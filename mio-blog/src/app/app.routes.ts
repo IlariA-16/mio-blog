@@ -20,6 +20,12 @@ export const routes: Routes = [
         .then(m => m.About)
   },
   {
+    path: 'contatti',
+    loadComponent: () =>
+      import('./features/contatti/contatti')
+        .then(m => m.Contatti)
+  },
+  {
     path: '**',
     redirectTo: ''
   }

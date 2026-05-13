@@ -1,0 +1,90 @@
+<section class="hero-section">
+  <!-- Elementi geometrici e di sfondo tech ereditati dalla Home -->
+  <div class="tech-grid-overlay"></div>
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+
+  <div class="hero-container-fullscreen">
+    <div class="status-badge">
+      <span class="pulse-dot"></span>
+      System Status: Live Connection // init_contact_session
+    </div>
+    
+    <h1 class="hero-title-modern">
+      Mettiti in <span class="text-gradient">contatto.</span>
+    </h1>
+
+    <!-- Card del Modulo Contatti in stile Finestra Terminale della Home -->
+    <div class="terminal-window" style="text-align: left;">
+      <div class="terminal-header">
+        <span class="term-dot red"></span>
+        <span class="term-dot yellow"></span>
+        <span class="term-dot green"></span>
+        <span class="terminal-title">ilaria-taddei@contact-module:~</span>
+      </div>
+      
+      <div class="terminal-body" style="font-family: inherit;">
+        @if (formSuccess) {
+          <div class="success-alert">
+            <span class="success-icon">✓</span>
+            <p>Messaggio inviato con successo! Ti risponderò al più presto.</p>
+          </div>
+        }
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <!-- Input Nome -->
+          <div class="form-group-tech">
+            <label for="nome">Nome completo</label>
+            <input 
+              type="text" 
+              id="nome" 
+              formControlName="nome" 
+              placeholder="Inserisci il tuo nome"
+              [class.input-error]="(contactForm.get('nome')?.invalid && contactForm.get('nome')?.touched) || (isSubmitted && contactForm.get('nome')?.invalid)"
+            />
+            @if (((contactForm.get('nome')?.invalid && contactForm.get('nome')?.touched) || (isSubmitted && contactForm.get('nome')?.invalid))) {
+              <span class="error-msg-tech">Il nome è richiesto (minimo 2 caratteri)</span>
+            }
+          </div>
+
+          <!-- Input Email -->
+          <div class="form-group-tech">
+            <label for="email">Indirizzo Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              formControlName="email" 
+              placeholder="esempio@dominio.com"
+              [class.input-error]="(contactForm.get('email')?.invalid && contactForm.get('email')?.touched) || (isSubmitted && contactForm.get('email')?.invalid)"
+            />
+            @if (((contactForm.get('email')?.invalid && contactForm.get('email')?.touched) || (isSubmitted && contactForm.get('email')?.invalid))) {
+              <span class="error-msg-tech">Inserisci un indirizzo email valido</span>
+            }
+          </div>
+
+          <!-- Input Messaggio -->
+          <div class="form-group-tech">
+            <label for="messaggio">Messaggio</label>
+            <textarea 
+              id="messaggio" 
+              formControlName="messaggio" 
+              rows="5" 
+              placeholder="Scrivi qui il tuo messaggio..."
+              [class.input-error]="(contactForm.get('messaggio')?.invalid && contactForm.get('messaggio')?.touched) || (isSubmitted && contactForm.get('messaggio')?.invalid)"
+            ></textarea>
+            @if (((contactForm.get('messaggio')?.invalid && contactForm.get('messaggio')?.touched) || (isSubmitted && contactForm.get('messaggio')?.invalid))) {
+              <span class="error-msg-tech">Il messaggio deve contenere almeno 10 caratteri</span>
+            }
+          </div>
+
+          <!-- Pulsante di Invio speculare ai bottoni minimi -->
+          <div style="margin-top: 1.5rem;">
+            <button type="submit" class="btn-tech-submit-page">
+              Invia Messaggio //
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

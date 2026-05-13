@@ -1,17 +1,25 @@
+/* ==========================================
+   BARRA DI NAVIGAZIONE GENERALE (BLINDATA)
+   ========================================== */
 .main-navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 70px;
-  background-color: rgba(255, 245, 247, 0.85); /* Sfondo rosa semi-trasparente */
-  backdrop-filter: blur(10px); /* Effetto vetro sfocato */
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 105, 180, 0.1);
-  z-index: 1000;
+  
+  /* Sfondo a gradiente orizzontale: sfuma da un rosa pastello morbido a un bianco pulito tech */
+  background: linear-gradient(to right, rgba(255, 245, 247, 0.92) 0%, rgba(255, 255, 255, 0.85) 100%) !important;
+  
+  /* Effetto vetro sfocato satinato durante lo scorrimento */
+  backdrop-filter: blur(12px) !important; 
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(255, 105, 180, 0.1) !important;
+  z-index: 9999 !important; /* Forza la navbar sopra qualsiasi cerchio sfumato o elemento hero */
   display: flex;
   align-items: center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: none !important; /* Previene sfarfallii o cambi di colore durante il routing */
 }
 
 .nav-container {
@@ -25,11 +33,19 @@
 }
 
 .nav-logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #2d132c;
+  font-size: 1.35rem;        /* Dimensione coordinata all'altezza della navbar */
+  font-weight: 800;          /* Spessore marcato identico al titolo della pagina */
+  color: #2b1325 !important; /* Colore scuro prugna per la parola 'ilaria' */
   text-decoration: none;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;   /* Compressione spaziatura lettere come nella Hero */
+}
+
+/* Applica il gradiente sfumato rosa-viola esattamente sulla parola 'taddei' */
+.nav-logo .text-gradient {
+  background: linear-gradient(135deg, #ff4a85 0%, #a43a6d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .nav-links {
@@ -47,7 +63,9 @@
   padding: 0.25rem 0;
 }
 
-/* Effetti Hover e Stato Attivo sulla Navbar */
+/* ==========================================
+   EFFETTI INTERATTIVI E STATO ATTIVO
+   ========================================== */
 .nav-link:hover, 
 .nav-link.active {
   color: #ff4a85;
@@ -71,23 +89,11 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-.main-navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 70px;
-  background-color: rgba(255, 245, 247, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 105, 180, 0.1);
-  z-index: 9999 !important; /* 👈 Forza la navbar sopra il cerchio sfumato e la hero */
-  display: flex;
-  align-items: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
 
-.nav-link, .nav-logo, .btn-primary, .social-icon {
-  cursor: pointer !important; /* 👈 Forza il cursore a diventare una manina cliccabile */
+/* Forzatura globale dei cursori per gli elementi di interazione */
+.nav-link, 
+.nav-logo, 
+.btn-primary, 
+.social-icon {
+  cursor: pointer !important;
 }
-
