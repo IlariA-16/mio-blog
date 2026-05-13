@@ -30,7 +30,21 @@ export class Contatti implements OnInit {
     this.isSubmitted = true;
 
     if (this.contactForm.valid) {
-      console.log('Dati ricevuti dal modulo contatti:', this.contactForm.value);
+      const { nome, email, messaggio } = this.contactForm.value;
+      
+      const tuaEmail = 'ilariataddei@hotmail.com'; 
+      
+      // Prepara l'oggetto e il corpo del testo formattati per l'URL
+      const oggetto = encodeURIComponent(`Nuovo contatto dal sito da parte di ${nome}`);
+      const corpoEmail = encodeURIComponent(
+        `Dettagli del contatto:\n\n` +
+        `👤 Nome: ${nome}\n` +
+        `📧 Email: ${email}\n\n` +
+        `💬 Messaggio:\n${messaggio}`
+      );
+      
+      // Avvia l'applicazione di posta predefinita dell'utente
+      window.location.href = `mailto:${tuaEmail}?subject=${oggetto}&body=${corpoEmail}`;
       
       this.formSuccess = true;
       this.contactForm.reset();
