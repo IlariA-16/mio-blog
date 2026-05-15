@@ -1,6 +1,4 @@
-<!-- Sezione Hero Tech Immersiva -->
 <section class="hero-section">
-  <!-- Livelli di sfondo tecnologici combinati -->
   <div class="tech-bg-image"></div>
   <div class="tech-grid-overlay"></div>
   <div class="glow-orb orb-1"></div>
@@ -9,14 +7,13 @@
   <div class="hero-container-fullscreen">
     <div class="status-badge">
       <span class="pulse-dot"></span>
-      System Status: Ready to Code // Available for Hire
+      {{ 'HOME.SYSTEM_STATUS' | translate }}
     </div>
     
     <h1 class="hero-title-modern">
-      <span class="text-gradient">Costruisco interfacce web creative e performanti.</span>
+      <span class="text-gradient">{{ 'HOME.HERO_TITLE' | translate }}</span>
     </h1>
 
-    <!-- Finestra Terminale Interattiva -->
     <div class="terminal-window">
       <div class="terminal-header">
         <span class="term-dot red"></span>
@@ -27,119 +24,96 @@
       <div class="terminal-body">
         <p class="line"><span class="cmd-keyword">const</span> developer = <span class="cmd-string">"Ilaria Taddei"</span>;</p>
         <p class="line"><span class="cmd-keyword">let</span> skills = [<span class="cmd-string">"Angular"</span>, <span class="cmd-string">"React"</span>, <span class="cmd-string">"JavaScript"</span>, <span class="cmd-string">"CSS"</span>,<span class="cmd-string">"HTML5"</span>];</p>
-        <p class="line"><span class="cmd-keyword">let</span> status = <span class="cmd-string">"Looking for junior frontend opportunities"</span>;</p>
-        <p class="line cmd-output">// Inizializzazione ambiente completata con successo...</p>
+        <p class="line" *ngIf="showLine3"><span class="cmd-keyword">let</span> status = <span class="cmd-string">"{{ typedLine3 }}"</span>;</p>
+        <p class="line cmd-output" *ngIf="showOutput">{{ 'HOME.TERMINAL_DONE' | translate }}</p>
         <p class="line"><span class="cmd-cursor">_</span></p>
       </div>
     </div>
 
     <div class="hero-actions-group">
       <a routerLink="/blog" class="btn-tech-primary">
-        Esplora il Blog 
+        {{ 'BLOG' | translate }} 
         <span class="arrow-icon">→</span>
       </a>
       <div class="hero-social-group">
-        <a href="https://github.com/IlariA-16?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn-tech-icon" title="GitHub">&lt;Git/&gt;</a>
-        <a href="https://www.linkedin.com/in/ilaria-taddei-768b94167/" target="_blank" rel="noopener noreferrer" class="btn-tech-icon" title="LinkedIn">&lt;In/&gt;</a>
+        <a href="https://github.com/IlariA-16?tab=repositories" target="_blank" class="btn-tech-icon">&lt;Git/&gt;</a>
+        <a href="https://www.linkedin.com/in/ilaria-taddei-768b94167/" target="_blank" class="btn-tech-icon">&lt;In/&gt;</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Sezione Competenze Tecniche -->
 <section class="tech-section">
   <div class="tech-container">
-    <h2 class="section-title">Le mie competenze</h2>
-    <p class="section-subtitle">Le tecnologie e gli strumenti che utilizzo per dare vita ai progetti</p>
+    <h2 class="section-title">{{ 'HOME.SKILLS_TITLE' | translate }}</h2>
+    <p class="section-subtitle">{{ 'HOME.SKILLS_SUBTITLE' | translate }}</p>
     
     <div class="tech-grid">
-      <!-- Card HTML -->
       <div class="tech-card">
         <div class="tech-icon-wrapper html-icon">HTML5</div>
         <h3>HTML5</h3>
-        <p>Struttura semantica e accessibile</p>
+        <p>{{ 'HOME.SKILL_HTML_DESC' | translate }}</p>
       </div>
-
-      <!-- Card CSS -->
       <div class="tech-card">
         <div class="tech-icon-wrapper css-icon">CSS3</div>
         <h3>CSS3 & Flexbox</h3>
-        <p>Layout moderni, responsive e animazioni</p>
+        <p>{{ 'HOME.SKILL_CSS_DESC' | translate }}</p>
       </div>
-
-      <!-- Card JavaScript -->
       <div class="tech-card">
         <div class="tech-icon-wrapper js-icon">JS</div>
         <h3>JavaScript</h3>
-        <p>Logica dinamica ed ES6+ moderno</p>
+        <p>{{ 'HOME.SKILL_JS_DESC' | translate }}</p>
       </div>
-
-      <!-- Card Angular -->
       <div class="tech-card">
         <div class="tech-icon-wrapper angular-icon">NG</div>
         <h3>Angular</h3>
-        <p>Architettura a componenti e SPA scalabili</p>
+        <p>{{ 'HOME.SKILL_NG_DESC' | translate }}</p>
       </div>
-
-      <!-- Card React -->
       <div class="tech-card">
         <div class="tech-icon-wrapper react-icon">React</div>
         <h3>React</h3>
-        <p>Interfacce dinamiche e gestione dello stato</p>
+        <p>{{ 'HOME.SKILL_REACT_DESC' | translate }}</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SEZIONE: Progetti in Evidenza -->
 <section class="projects-section">
   <div class="projects-container">
-    <h2 class="section-title">Progetti in Evidenza</h2>
-    <p class="section-subtitle">I lavori pratici che ho realizzato per consolidare le mie competenze</p>
+    <h2 class="section-title">{{ 'HOME.PROJECTS_TITLE' | translate }}</h2>
+    <p class="section-subtitle">{{ 'HOME.PROJECTS_SUBTITLE' | translate }}</p>
 
     <div class="projects-grid">
-      <!-- Card Progetto 1: Homes App -->
       <div class="project-card">
         <div class="project-image-placeholder">🏡 Homes App</div>
         <div class="project-info">
           <h3>Angular Homes App</h3>
-          <p>Applicazione per la ricerca di alloggi che gestisce filtri di ricerca in tempo reale e visualizzazione dei dettagli tramite routing dinamico.</p>
-          <div class="project-tags">
-            <span class="tag">Angular</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Angular Routing</span>
-          </div>
-          <a href="https://github.com/IlariA-16/Progetto.Adiacent.git" target="_blank" rel="noopener noreferrer" class="project-link">Vedi su GitHub →</a>
+          <p>{{ 'HOME.PROJ1_DESC' | translate }}</p>
+          <div class="project-tags"><span class="tag">Angular</span><span class="tag">TypeScript</span></div>
+          <a href="..." class="project-link">{{ 'HOME.SEE_GITHUB' | translate }} →</a>
         </div>
       </div>
-
-      <!-- Card Progetto 2: Il tuo Portfolio -->
       <div class="project-card">
         <div class="project-image-placeholder">💻 Personal Portfolio</div>
         <div class="project-info">
-          <h3>Sito Web Portfolio</h3>
-          <p>Questo spazio web interamente sviluppato a componenti per presentare le mie competenze, progetti e articoli di blog in modo chiaro e responsivo.</p>
-          <div class="project-tags">
-            <span class="tag">Angular 17+</span>
-            <span class="tag">CSS Grid/Flexbox</span>
-            <span class="tag">Standalone Components</span>
-          </div>
-          <a href="https://github.com/IlariA-16/mio-blog.git" target="_blank" rel="noopener noreferrer" class="project-link">Vedi su GitHub →</a>
+          <h3>{{ 'HOME.PROJ2_TITLE' | translate }}</h3>
+          <p>{{ 'HOME.PROJ2_DESC' | translate }}</p>
+          <div class="project-tags"><span class="tag">Angular 18</span><span class="tag">Standalone</span></div>
+          <a href="..." class="project-link">{{ 'HOME.SEE_GITHUB' | translate }} →</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Sezione CTA Finale Veloce e Footer della Home -->
 <section class="home-cta-footer">
   <div class="footer-container">
-    <h2>Interessato ai miei lavori?</h2>
-    <p>Puoi metterti in contatto con me direttamente nella pagina dedicata oppure inviarmi una mail rapida.</p>
+    <h2>{{ 'HOME.CTA_TITLE' | translate }}</h2>
+    <p>{{ 'HOME.CTA_SUBTITLE' | translate }}</p>
     <div class="footer-buttons">
-      <a routerLink="/contatti" class="btn-tech-primary">Apri Modulo Contatti</a>
-      <a href="mailto:ilariataddei@hotmail.com" class="btn-email-footer">Invia Email ✉</a>
+      <a routerLink="/contatti" class="btn-tech-primary">{{ 'HOME.BTN_CONTACT' | translate }}</a>
+      <a href="mailto:ilariataddei@hotmail.com" class="btn-email-footer">{{ 'HOME.BTN_EMAIL' | translate }} ✉</a>
     </div>
-    <p class="footer-credits">© 2026 Ilaria Taddei • Sviluppato con Angular</p>
+    <p class="footer-credits">{{ 'HOME.CREDITS' | translate }}</p>
   </div>
 </section>

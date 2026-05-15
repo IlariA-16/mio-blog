@@ -97,3 +97,43 @@
 .social-icon {
   cursor: pointer !important;
 }
+/* ==========================================
+   SWITCHER LINGUA (COORDINATO)
+   ========================================== */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1.5rem; /* Distanza dai link della nav */
+  padding-left: 1.5rem;
+  border-left: 1px solid rgba(255, 105, 180, 0.2); /* Separatore sottile rosa */
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #805b7e; /* Colore prugna come i link */
+  cursor: pointer !important;
+  transition: all 0.2s ease;
+  padding: 2px 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lang-btn:hover {
+  color: #ff4a85; /* Rosa del tuo gradiente */
+}
+
+/* Stile per la lingua correntemente attiva (opzionale) */
+.lang-btn.active {
+  color: #ff4a85;
+  border-bottom: 2px solid #ff4a85;
+}
+
+.lang-divider {
+  color: rgba(128, 91, 126, 0.3); /* Colore prugna molto trasparente */
+  font-size: 0.8rem;
+  user-select: none;
+}

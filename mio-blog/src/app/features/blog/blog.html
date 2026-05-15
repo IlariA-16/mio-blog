@@ -1,39 +1,36 @@
 <div class="blog-container page-container">
-  <!-- Tag decorativi per lo sfondo tech a gradiente rosa coerente con la Home -->
   <div class="tech-grid-overlay"></div>
   <div class="glow-orb orb-1"></div>
   <div class="glow-orb orb-2"></div>
 
   <div class="blog-main-wrapper page-main-wrapper">
-    <!-- Intestazione Pagina -->
     <header class="blog-header">
       <div class="status-badge">
         <span class="pulse-dot"></span> // devblog_session_active
       </div>
-      <h1 class="blog-title text-gradient">Dev_Blog</h1>
-      <p class="blog-subtitle">Il mio diario di sviluppo: l'analisi tecnica, le sfide riscontrate e le soluzioni logiche adottate per ogni progetto.</p>
+      <h1 class="blog-title text-gradient">{{ 'BLOG.TITLE' | translate }}</h1>
+      <p class="blog-subtitle">{{ 'BLOG.SUBTITLE' | translate }}</p>
     </header>
 
-    <!-- Griglia dei Log dei Progetti -->
     <div class="blog-grid">
       @for (log of logs; track log.id) {
         <article class="blog-card">
           <div class="blog-card-meta">
-            <span class="blog-project-name">// {{ log.nomeProgetto }}</span>
-            <span class="blog-status-tag" [class.completed]="log.stato.includes('Completato')">
-              {{ log.stato }}
+            <span class="blog-project-name">// {{ 'BLOG.LOGS.' + log.key + '.NAME' | translate }}</span>
+            <span class="blog-status-tag" [class.completed]="log.key === 'HOMES'">
+              {{ 'BLOG.LOGS.' + log.key + '.STATUS' | translate }}
             </span>
           </div>
           
           <div class="blog-card-body">
             <div class="log-block">
-              <span class="log-label">🚨 LA SFIDA:</span>
-              <p>{{ log.sfidaTecnica }}</p>
+              <span class="log-label">{{ 'BLOG.CHALLENGE_TITLE' | translate }}</span>
+              <p>{{ 'BLOG.LOGS.' + log.key + '.CHALLENGE' | translate }}</p>
             </div>
             
             <div class="log-block">
-              <span class="log-label">💡 LA SOLUZIONE:</span>
-              <p>{{ log.soluzioneAdottata }}</p>
+              <span class="log-label">{{ 'BLOG.SOLUTION_TITLE' | translate }}</span>
+              <p>{{ 'BLOG.LOGS.' + log.key + '.SOLUTION' | translate }}</p>
             </div>
           </div>
           
@@ -45,7 +42,7 @@
             </div>
             @if (log.linkGithub) {
               <a [href]="log.linkGithub" target="_blank" rel="noopener noreferrer" class="blog-read-link">
-                Repository GitHub →
+                {{ 'BLOG.VIEW_CODE' | translate }} →
               </a>
             }
           </div>

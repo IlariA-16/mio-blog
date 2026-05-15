@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TranslateModule, TranslateService } from '@ngx-translate/core'; // <--- Aggiunto TranslateService
 
 @Component({
   selector: 'app-contatti',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule], 
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule], 
   templateUrl: './contatti.html', 
   styleUrl: './contatti.css',    
 })
@@ -14,10 +15,12 @@ export class Contatti implements OnInit {
   isSubmitted = false;
   formSuccess = false;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private translate: TranslateService // <--- Iniettato qui
+  ) {}
 
   ngOnInit(): void {
-    // Specifica i campi del form e le regole di validazione in tempo reale
     this.contactForm = this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
@@ -25,32 +28,31 @@ export class Contatti implements OnInit {
     });
   }
 
-  // Azione che scatta al click del pulsante Invia
   onSubmit(): void {
     this.isSubmitted = true;
 
     if (this.contactForm.valid) {
       const { nome, email, messaggio } = this.contactForm.value;
-      
       const tuaEmail = 'ilariataddei@hotmail.com'; 
       
-      // Prepara l'oggetto e il corpo del testo formattati per l'URL
-      const oggetto = encodeURIComponent(`Nuovo contatto dal sito da parte di ${nome}`);
+      // Recuperiamo le traduzioni per l'email (facoltativo, ma professionale)
+      const mailSubjectPrefix = this.translate.instant('CONTACTS.MAIL_SUBJECT');
+      const mailDetails = this.translate.instant('CONTACTS.MAIL_DETAILS');
+
+      const oggetto = encodeURIComponent(`${mailSubjectPrefix} ${nome}`);
       const corpoEmail = encodeURIComponent(
-        `Dettagli del contatto:\n\n` +
-        `👤 Nome: ${nome}\n` +
+        `${mailDetails}:\n\n` +
+        `👤 Name: ${nome}\n` +
         `📧 Email: ${email}\n\n` +
-        `💬 Messaggio:\n${messaggio}`
+        `💬 Message:\n${messaggio}`
       );
       
-      // Avvia l'applicazione di posta predefinita dell'utente
       window.location.href = `mailto:${tuaEmail}?subject=${oggetto}&body=${corpoEmail}`;
       
       this.formSuccess = true;
       this.contactForm.reset();
       this.isSubmitted = false;
 
-      // Nasconde il banner verde di successo dopo 5 secondi
       setTimeout(() => {
         this.formSuccess = false;
       }, 5000);

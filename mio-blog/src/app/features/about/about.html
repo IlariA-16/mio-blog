@@ -1,19 +1,16 @@
 <div class="about-container">
-  <!-- Tag decorativi per lo sfondo tech a gradiente rosa coerente con la Home -->
   <div class="tech-grid-overlay"></div>
   <div class="glow-orb orb-1"></div>
   <div class="glow-orb orb-2"></div>
 
-  <!-- Contenitore centrale allineato per la finestra -->
   <div class="about-standalone-container">
     <div class="status-badge">
-      <span class="pulse-dot"></span> // profile_active_session
+      <span class="pulse-dot"></span> 
     </div>
     
-    <h1 class="contact-title text-gradient">Chi Sono</h1>
-    <p class="contact-subtitle">Il mio profilo e le tappe fondamentali della mia crescita tecnica.</p>
+    <h1 class="contact-title text-gradient">{{ 'ABOUT.TITLE' | translate }}</h1>
+    <p class="contact-subtitle">{{ 'ABOUT.SUBTITLE' | translate }}</p>
 
-    <!-- Finestra Terminale Identica alla Pagina Contatti -->
     <div class="terminal-window">
       <div class="terminal-header">
         <span class="term-dot red"></span>
@@ -23,79 +20,65 @@
       </div>
       
       <div class="terminal-body" style="font-family: inherit;">
-        
-        <!-- Sezione Introduzione con Foto Profilo Affiancata -->
         <div class="about-hero-grid">
           <div class="about-image-wrapper">
             <img src="profilo.jpg" alt="Ilaria Taddei" class="about-img" />
           </div>
           <div class="about-intro-text">
-            <span class="badge" style="margin-bottom: 0.5rem;">Junior Developer</span>
+            <span class="badge" style="margin-bottom: 0.5rem;">{{ 'ABOUT.ROLE_BADGE' | translate }}</span>
             <h2 style="color: #2b1629; margin-bottom: 0.25rem;">Ilaria Taddei</h2>
-            <p class="subtitle-about-page">Junior Frontend Developer | Sviluppatrice Software in Formazione</p>
-            <p class="about-p-text">
-              Sono una sviluppatrice software junior all'inizio del mio percorso professionale nel mondo del tech. Affronto questa nuova sfida con grandissima curiosità, entusiasmo e il desiderio di mettermi in gioco in un ambiente strutturato.
-            </p>
-            <p class="about-p-text">
-              Sto muovendo i miei primi passi pratici nello sviluppo web partendo da solide basi teoriche. Ho scelto di focalizzare i miei primi progetti personali sul Front-end, appassionandomi all'architettura di <strong>Angular</strong> e muovendo i primi passi nello studio della libreria <strong>React</strong>. Cerco un'opportunità di stage o un ruolo junior dove poter affiancare professionisti esperti e accelerare la mia crescita tecnica.
-            </p>
-             <a href="/CurriculumIlariaTaddei.pdf" target="_blank" rel="noopener noreferrer" class="btn-cv">Visualizza CV</a>
+            <p class="subtitle-about-page">{{ 'ABOUT.ROLE_DESCRIPTION' | translate }}</p>
+            <p class="about-p-text">{{ 'ABOUT.INTRO_P1' | translate }}</p>
+            <p class="about-p-text" [innerHTML]="'ABOUT.INTRO_P2' | translate"></p> <a href="/CurriculumIlariaTaddei.pdf" target="_blank" rel="noopener noreferrer" class="btn-cv">{{ 'ABOUT.BTN_CV' | translate }}</a>
           </div>
         </div>
+        
         <hr class="about-divider" />
 
-        <!-- Sezione Percorso Formativo (Timeline) -->
         <div class="about-section-block">
-          <h2 class="about-inner-title">// Il mio percorso</h2>
+          <h2 class="about-inner-title">// {{ 'ABOUT.TIMELINE_TITLE' | translate }}</h2>
           <div class="about-timeline-stack">
             
             <div class="about-timeline-item">
-              <span class="about-time-tag">2025 - In Corso</span>
-              <h3>Qualifica Professionale "Sviluppatore Software"</h3>
-              <span class="about-inst-tag">ASEV (Corso di Qualifica)</span>
-              <p>Il mio punto di partenza formale. Un percorso intensivo strutturato per comprendere la logica di programmazione, le basi dell'ingegneria del software, i flussi di testing e la manutenzione del codice. Rappresenta l'aula in cui sto trasformando la passione in competenze spendibili.</p>
+              <span class="about-time-tag">2025 - {{ 'ABOUT.IN_PROGRESS' | translate }}</span>
+              <h3>{{ 'ABOUT.EDU_TITLE_1' | translate }}</h3>
+              <span class="about-inst-tag">ASEV ({{ 'ABOUT.EDU_TYPE' | translate }})</span>
+              <p>{{ 'ABOUT.EDU_DESC_1' | translate }}</p>
             </div>
             
             <div class="about-timeline-item">
-              <span class="about-time-tag">Primi Passi Front-end</span>
-              <h3>Studio delle Interfacce & Logica Client-side</h3>
-              <p>Consolidamento autonomo e guidato dei pilastri fondamentali del web: HTML5 e CSS3 per il responsive design, le primi manipolazioni del DOM con JavaScript moderno (ES6+) e l'introduzione alla strutturazione del codice con TypeScript.</p>
+              <span class="about-time-tag">{{ 'ABOUT.FIRST_STEPS' | translate }}</span>
+              <h3>{{ 'ABOUT.EDU_TITLE_2' | translate }}</h3>
+              <p>{{ 'ABOUT.EDU_DESC_2' | translate }}</p>
             </div>
 
             <div class="about-timeline-item">
-              <span class="about-time-tag">Primi Approcci Logici</span>
-              <h3>Introduzione al Back-end & Basi di Dati</h3>
-              <p>Primi esercizi di programmazione per comprendere la logica computazionale e i paradigmi a oggetti tramite Python e C#/.NET. Primi approcci alla gestione dei server con Node.js e alla manipolazione dei database relazionali tramite query base in MySQL.</p>
+              <span class="about-time-tag">{{ 'ABOUT.LOGIC_STEPS' | translate }}</span>
+              <h3>{{ 'ABOUT.EDU_TITLE_3' | translate }}</h3>
+              <p>{{ 'ABOUT.EDU_DESC_3' | translate }}</p>
             </div>
-            
           </div>
         </div>
 
         <hr class="about-divider" />
 
-        <!-- Sezione Valori / Attitudini -->
         <div class="about-section-block">
-          <h2 class="about-inner-title">// Cosa porto nel team</h2>
+          <h2 class="about-inner-title">// {{ 'ABOUT.SKILLS_TITLE' | translate }}</h2>
           <div class="about-skills-row">
-            
             <div class="about-skill-box">
-              <h4>📚 Desiderio di Apprendere</h4>
-              <p>Dedico ogni giorno tempo allo studio e alla sperimentazione. Ho un'alta capacità di apprendimento e mi adatto rapidamente a nuovi framework e metodologie aziendali.</p>
+              <h4>{{ 'ABOUT.SKILL_1_TITLE' | translate }}</h4>
+              <p>{{ 'ABOUT.SKILL_1_DESC' | translate }}</p>
             </div>
-            
             <div class="about-skill-box">
-              <h4>🎨 Precisione e Cura</h4>
-              <p>Affronto i compiti assegnati con massimo ordine e attenzione ai dettagli. Mi impegno per scrivere codice pulito, leggibile e rispettoso delle specifiche grafiche fornite.</p>
+              <h4>{{ 'ABOUT.SKILL_2_TITLE' | translate }}</h4>
+              <p>{{ 'ABOUT.SKILL_2_DESC' | translate }}</p>
             </div>
-            
             <div class="about-skill-box">
-              <h4>🤝 Ascolto e Collaborazione</h4>
-              <p>So ascoltare e fare tesoro dei feedback dei colleghi senior. Considero il confronto e il lavoro di squadra i canali fondamentali per correggere i miei errori e crescere professionalmente.</p>
+              <h4>{{ 'ABOUT.SKILL_3_TITLE' | translate }}</h4>
+              <p>{{ 'ABOUT.SKILL_3_DESC' | translate }}</p>
             </div>
-            
           </div>
         </div>
-
       </div>
     </div>
   </div>

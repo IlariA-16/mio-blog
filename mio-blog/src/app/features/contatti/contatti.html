@@ -1,5 +1,4 @@
 <section class="hero-section">
-  <!-- Elementi geometrici e di sfondo tech ereditati dalla Home -->
   <div class="tech-grid-overlay"></div>
   <div class="glow-orb orb-1"></div>
   <div class="glow-orb orb-2"></div>
@@ -7,14 +6,13 @@
   <div class="hero-container-fullscreen">
     <div class="status-badge">
       <span class="pulse-dot"></span>
-      System Status: Live Connection // init_contact_session
+      {{ 'CONTACTS.SYSTEM_STATUS' | translate }}
     </div>
     
     <h1 class="hero-title-modern">
-       <span class="text-gradient">Mettiti in contatto.</span>
+       <span class="text-gradient">{{ 'CONTACTS.TITLE' | translate }}</span>
     </h1>
 
-    <!-- Card del Modulo Contatti in stile Finestra Terminale della Home -->
     <div class="terminal-window" style="text-align: left;">
       <div class="terminal-header">
         <span class="term-dot red"></span>
@@ -27,60 +25,56 @@
         @if (formSuccess) {
           <div class="success-alert">
             <span class="success-icon">✓</span>
-            <p>Messaggio inviato con successo! Ti risponderò al più presto.</p>
+            <p>{{ 'CONTACTS.SUCCESS_MSG' | translate }}</p>
           </div>
         }
 
         <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-          <!-- Input Nome -->
           <div class="form-group-tech">
-            <label for="nome">Nome completo</label>
+            <label for="nome">{{ 'CONTACTS.LABEL_NAME' | translate }}</label>
             <input 
               type="text" 
               id="nome" 
               formControlName="nome" 
-              placeholder="Inserisci il tuo nome"
+              [placeholder]="'CONTACTS.PLACEHOLDER_NAME' | translate"
               [class.input-error]="(contactForm.get('nome')?.invalid && contactForm.get('nome')?.touched) || (isSubmitted && contactForm.get('nome')?.invalid)"
             />
             @if (((contactForm.get('nome')?.invalid && contactForm.get('nome')?.touched) || (isSubmitted && contactForm.get('nome')?.invalid))) {
-              <span class="error-msg-tech">Il nome è richiesto (minimo 2 caratteri)</span>
+              <span class="error-msg-tech">{{ 'CONTACTS.ERROR_NAME' | translate }}</span>
             }
           </div>
 
-          <!-- Input Email -->
           <div class="form-group-tech">
-            <label for="email">Indirizzo Email</label>
+            <label for="email">{{ 'CONTACTS.LABEL_EMAIL' | translate }}</label>
             <input 
               type="email" 
               id="email" 
               formControlName="email" 
-              placeholder="esempio@dominio.com"
+              [placeholder]="'CONTACTS.PLACEHOLDER_EMAIL' | translate"
               [class.input-error]="(contactForm.get('email')?.invalid && contactForm.get('email')?.touched) || (isSubmitted && contactForm.get('email')?.invalid)"
             />
             @if (((contactForm.get('email')?.invalid && contactForm.get('email')?.touched) || (isSubmitted && contactForm.get('email')?.invalid))) {
-              <span class="error-msg-tech">Inserisci un indirizzo email valido</span>
+              <span class="error-msg-tech">{{ 'CONTACTS.ERROR_EMAIL' | translate }}</span>
             }
           </div>
 
-          <!-- Input Messaggio -->
           <div class="form-group-tech">
-            <label for="messaggio">Messaggio</label>
+            <label for="messaggio">{{ 'CONTACTS.LABEL_MESSAGE' | translate }}</label>
             <textarea 
               id="messaggio" 
               formControlName="messaggio" 
               rows="5" 
-              placeholder="Scrivi qui il tuo messaggio..."
+              [placeholder]="'CONTACTS.PLACEHOLDER_MESSAGE' | translate"
               [class.input-error]="(contactForm.get('messaggio')?.invalid && contactForm.get('messaggio')?.touched) || (isSubmitted && contactForm.get('messaggio')?.invalid)"
             ></textarea>
             @if (((contactForm.get('messaggio')?.invalid && contactForm.get('messaggio')?.touched) || (isSubmitted && contactForm.get('messaggio')?.invalid))) {
-              <span class="error-msg-tech">Il messaggio deve contenere almeno 10 caratteri</span>
+              <span class="error-msg-tech">{{ 'CONTACTS.ERROR_MESSAGE' | translate }}</span>
             }
           </div>
 
-          <!-- Pulsante di Invio speculare ai bottoni minimi -->
           <div style="margin-top: 1.5rem;">
             <button type="submit" class="btn-tech-submit-page">
-              Invia Messaggio //
+              {{ 'CONTACTS.BTN_SEND' | translate }} //
             </button>
           </div>
         </form>
