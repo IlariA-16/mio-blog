@@ -1,0 +1,8 @@
+node_modules/
+.angular/
+dist/
+.vscode/
+.pnpm-store/
+.sass-cache/
+Thumbs.db
+.DS_Store
