@@ -22,14 +22,18 @@
       <div class="terminal-body" style="font-family: inherit;">
         <div class="about-hero-grid">
           <div class="about-image-wrapper">
-            <img src="profilo.jpg" alt="Ilaria Taddei" class="about-img" />
+            <img src="./profilo.jpg" alt="Ilaria Taddei" class="about-img" />
           </div>
           <div class="about-intro-text">
             <span class="badge" style="margin-bottom: 0.5rem;">{{ 'ABOUT.ROLE_BADGE' | translate }}</span>
             <h2 style="color: #2b1629; margin-bottom: 0.25rem;">Ilaria Taddei</h2>
             <p class="subtitle-about-page">{{ 'ABOUT.ROLE_DESCRIPTION' | translate }}</p>
             <p class="about-p-text">{{ 'ABOUT.INTRO_P1' | translate }}</p>
-            <p class="about-p-text" [innerHTML]="'ABOUT.INTRO_P2' | translate"></p> <a href="/CurriculumIlariaTaddei.pdf" target="_blank" rel="noopener noreferrer" class="btn-cv">{{ 'ABOUT.BTN_CV' | translate }}</a>
+            <p class="about-p-text" [innerHTML]="'ABOUT.INTRO_P2' | translate"></p>
+            
+            <a href="./CurriculumIlariaTaddei.pdf" target="_blank" rel="noopener noreferrer" class="btn-cv">
+              {{ 'ABOUT.BTN_CV' | translate }}
+            </a>
           </div>
         </div>
         
