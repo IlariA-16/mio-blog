@@ -25,7 +25,11 @@
     "CTA_SUBTITLE": "Puoi metterti in contatto con me direttamente nella pagina dedicata oppure inviarmi una mail rapida.",
     "BTN_CONTACT": "Apri Modulo Contatti",
     "BTN_EMAIL": "Invia Email",
-    "CREDITS": "© 2026 Ilaria Taddei • Sviluppato con Angular"
+    "CREDITS": "© 2026 Ilaria Taddei • Sviluppato con Angular",
+    "PROJ3_TITLE": "Travel Packing Checklist",
+    "PROJ3_DESC": "Un'applicazione web per gestire e organizzare la lista delle cose da mettere in valigia prima di un viaggio.",
+    "PROJ4_TITLE": "Harry Potter Trivia Quiz",
+    "PROJ4_DESC": "Un gioco a quiz interattivo dedicato al mondo di Harry Potter per testare la propria conoscenza magica."
   },
   "ABOUT": {
     "TITLE": "Chi Sono",
@@ -75,6 +79,18 @@
         "CHALLENGE": "Sincronizzare lo stile visivo tra rotte diverse eliminando stacchi netti di colore.",
         "SOLUTION": "Sviluppo di un layout a gradiente continuo e centralizzazione del CSS con design Bento Grid.",
         "STATUS": "In Costante Aggiornamento"
+      },
+      "CHECKLIST": {
+        "NAME": "Travel Packing Checklist",
+        "STATUS": "Completato & Ottimizzato",
+        "CHALLENGE": "Gestire lo stato degli elementi selezionati e memorizzare la lista in modo che non si cancelli al ricaricamento della pagina.",
+        "SOLUTION": "Utilizzo di funzioni JavaScript per la manipolazione dinamica del DOM e salvataggio persistente dei dati tramite localStorage."
+      },
+      "HPQUIZ": {
+        "NAME": "Harry Potter Quiz",
+        "STATUS": "Completato & Ottimizzato",
+        "CHALLENGE": "Creare un sistema a punteggio interattivo con avanzamento sequenziale delle domande senza ricaricare la pagina.",
+        "SOLUTION": "Sviluppo della logica di gioco in JavaScript puro mediante array di oggetti, gestione dei flussi condizionali e aggiornamento dinamico dell'interfaccia."
       }
     }
   },

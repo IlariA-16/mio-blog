@@ -1,11 +1,39 @@
 /* Estensione del contenitore di pagina per il layout del blog */
 .blog-container {
+  position: relative;
   min-height: calc(100vh - 70px);
+  overflow: hidden;
+  background-color: #fff9fa;
+  padding: 6rem 2rem;
 }
+
+/* Pattern geometrico tech fine (Griglia a righe) */
+.tech-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 74, 133, 0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 74, 133, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 1;
+}
+
+/* Orbs luminose di sfondo per profondità */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 1;
+  opacity: 0.5;
+}
+.orb-1 { width: 450px; height: 450px; background: rgba(255, 105, 180, 0.2); top: -5%; left: 10%; }
+.orb-2 { width: 350px; height: 350px; background: rgba(0, 216, 255, 0.1); bottom: 5%; right: 10%; }
 
 /* Allineamento del wrapper dei contenuti del blog */
 .blog-main-wrapper {
+  position: relative;
+  z-index: 3;
   max-width: 1100px; 
+  margin: 0 auto;
 }
 
 /* Header della sezione Blog */
@@ -32,10 +60,10 @@
   line-height: 1.6;
 }
 
-/* Griglia flessibile e responsive per i Log dei Progetti */
+/* Griglia forzata a 2 colonne per i Log dei Progetti */
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr); /* Forza esattamente 2 colonne affiancate */
   gap: 2.5rem;
   margin-top: 2rem;
 }
@@ -101,7 +129,7 @@
   margin-bottom: 1.5rem;
 }
 
-/* Blocchi di contenuto (Sfida / Soluzione) */
+/* Blocchi di contenuto (Sfia / Soluzione) */
 .log-block .log-label {
   display: block;
   font-family: monospace;
@@ -158,4 +186,11 @@
 .blog-read-link:hover {
   color: #ff4a85;
   transform: translateX(3px); 
+}
+
+/* Ottimizzazione responsive per schermi più piccoli (Tablet e Smartphone) */
+@media (max-width: 900px) {
+  .blog-grid {
+    grid-template-columns: 1fr; /* Torna a 1 colonna singola su mobile */
+  }
 }

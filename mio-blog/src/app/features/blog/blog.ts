@@ -32,6 +32,20 @@ export class Blog implements OnInit {
       tecnologie: ['Angular Router', 'CSS Standalone', 'Bento Layout'],
       linkGithub: 'https://github.com/IlariA-16/mio-blog.git',
       dataAggiornamento: 'Maggio 2026'
+    },
+    {
+      id: 3,
+      key: 'CHECKLIST',
+      tecnologie: ['JavaScript', 'DOM-Manipulation', 'LocalData'],
+      linkGithub: 'https://github.com/IlariA-16/travel-packing-checklist.git',
+      dataAggiornamento: 'Maggio 2026'
+    },
+    {
+      id: 4,
+      key: 'HPQUIZ',
+      tecnologie: ['JavaScript', 'GameLogic', 'WebApps'],
+      linkGithub: 'https://github.com/IlariA-16/harry-potter-quiz.git',
+      dataAggiornamento: 'Maggio 2026'
     }
   ];
 

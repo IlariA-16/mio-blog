@@ -136,14 +136,14 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.9rem 2.5rem;
-  background: #ffffff; /* Sfondo bianco di partenza */
-  color: #000000 !important; /* Forza il testo nero iniziale */
+  background: #ffffff;
+  color: #000000 !important;
   text-decoration: none;
   border-radius: 12px;
   font-weight: 600;
   font-size: 1rem;
   box-sizing: border-box;
-  border: 2px solid rgba(45, 19, 44, 0.12); /* Bordo nitido coordinato */
+  border: 2px solid rgba(45, 19, 44, 0.12);
   box-shadow: 0 4px 14px rgba(45, 19, 44, 0.05);
   transition: all 0.2s ease-in-out;
 }
@@ -151,7 +151,7 @@
 .btn-tech-primary:hover {
   background: #ff4a85;
   border-color: #ff4a85;
-  color: #ffffff !important; /* Il testo e la freccia passano a bianco */
+  color: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 74, 133, 0.25);
 }
@@ -192,14 +192,12 @@
 .section-title { font-size: 2.2rem; color: #2b1629; font-weight: 700; margin-bottom: 0.5rem; }
 .section-subtitle { font-size: 1.05rem; color: #7d657a; margin-bottom: 3.5rem; }
 
-/* Configurazione Bento Grid asimmetrica avanzata */
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 1.5rem;
 }
 
-/* Card Solida Bianca */
 .tech-card {
   background: #ffffff;
   padding: 2.5rem 1.5rem;
@@ -213,7 +211,6 @@
   text-align: center;
 }
 
-/* Distribuzione Bento: Angular e React più grandi per rompere lo schema ripetitivo */
 .tech-grid .tech-card:nth-child(4),
 .tech-grid .tech-card:nth-child(5) {
   grid-column: span 3;
@@ -268,12 +265,22 @@
   text-align: center;
 }
 
-.projects-container { max-width: 1100px; margin: 0 auto; }
+.projects-container { 
+  max-width: 1100px; 
+  margin: 0 auto; 
+}
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr); /* Forza layout a 2 colonne perfette */
   gap: 2.5rem;
+}
+
+/* Ottimizzazione responsive per tablet e smartphone */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* Passa a 1 colonna singola su schermi piccoli */
+  }
 }
 
 .project-card {
@@ -284,6 +291,8 @@
   text-align: left;
   transition: transform 0.25s ease, border-color 0.25s ease;
   border: 1px solid rgba(45, 19, 44, 0.05);
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
@@ -293,108 +302,66 @@
 }
 
 .project-image-placeholder {
-  height: 180px;
-  background: linear-gradient(135deg, #fff0f2 0%, #fbe4e8 100%);
-  border-bottom: 1px solid rgba(45, 19, 44, 0.04);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
+  background-color: #fff6f7;
+  padding: 3rem 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
   color: #2b1629;
-  font-weight: 600;
+  border-bottom: 1px solid rgba(45, 19, 44, 0.04);
 }
 
-.project-info { padding: 1.5rem; }
-.project-info h3 { color: #2b1629; margin-bottom: 0.5rem; font-size: 1.3rem; }
-.project-info p { color: #594155; font-size: 0.95rem; line-height: 1.5; margin-bottom: 1rem; }
-.project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.project-info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-info h3 {
+  font-size: 1.4rem;
+  color: #2b1629;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.project-info p {
+  font-size: 0.95rem;
+  color: #594155;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
 
 .tag {
-  background: #fff0f2;
+  background-color: #fff0f3;
   color: #ff4a85;
-  padding: 0.3rem 0.8rem;
-  border-radius: 8px;
   font-size: 0.8rem;
   font-weight: 600;
+  padding: 0.4rem 0.9rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 74, 133, 0.1);
 }
 
-.project-link { color: #ff4a85; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
-.project-link:hover { text-decoration: underline; }
-
-/* ==========================================
-   5. CTA FINALE & BOTTONI DI CHIUSURA COMPLETI
-   ========================================== */
-.home-cta-footer {
-  padding: 5rem 2rem;
-  text-align: center;
-  border-top: 1px solid rgba(45, 19, 44, 0.05);
-}
-
-.home-cta-footer h2 { color: #2b1629; font-size: 2rem; margin-top: 0; margin-bottom: 0.5rem; }
-.home-cta-footer p { color: #4a2d46; margin-bottom: 2rem; }
-
-.footer-buttons { 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  gap: 1.5rem; 
-  margin-bottom: 3rem; 
-}
-
-@media (max-width: 480px) { .footer-buttons { flex-direction: column; gap: 1rem; } }
-
-/* 1. Pulsante Principale (Apri Modulo Contatti) - Testo Nero */
-.home-cta-footer .btn-tech-primary {
+.project-link {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 0.9rem 2rem;
-  background: #ffffff;
-  border: 2px solid rgba(45, 19, 44, 0.12); /* Bordo leggermente più scuro per risaltare */
-  color: #000000 !important; /* Forza il testo nero iniziale */
-  text-decoration: none;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 1rem;
-  box-sizing: border-box;
-  box-shadow: 0 4px 14px rgba(45, 19, 44, 0.05);
-  transition: all 0.2s ease-in-out;
-}
-
-/* All'hover diventa rosa e il testo passa a bianco */
-.home-cta-footer .btn-tech-primary:hover {
-  background: #ff4a85;
-  border-color: #ff4a85;
-  color: #ffffff !important; /* Il testo diventa bianco */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 74, 133, 0.25);
-}
-
-/* 2. Pulsante Secondario (Invia Email) - Testo Nero */
-.btn-email-footer {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9rem 2rem;
-  background: #ffffff;
-  border: 2px solid rgba(45, 19, 44, 0.12);
-  color: #000000; /* Testo nero iniziale */
+  color: #ff4a85;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
-  border-radius: 12px;
-  box-sizing: border-box;
-  box-shadow: 0 4px 14px rgba(45, 19, 44, 0.05);
-  transition: all 0.2s ease-in-out;
+  font-size: 0.95rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+  align-self: flex-start;
 }
 
-/* All'hover diventa rosa e il testo passa a bianco */
-.btn-email-footer:hover {
-  background: #ff4a85;
-  border-color: #ff4a85;
-  color: #ffffff; /* Il testo diventa bianco */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 74, 133, 0.25);
+.project-link:hover {
+  color: #a43a6d;
+  transform: translateX(4px);
 }
-
-.footer-credits { margin: 0 !important; font-family: monospace; font-size: 0.85rem; color: #7d657a !important; }
