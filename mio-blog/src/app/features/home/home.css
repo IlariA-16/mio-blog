@@ -365,3 +365,76 @@
   color: #a43a6d;
   transform: translateX(4px);
 }
+/* ==========================================
+   5. SEZIONE CTA FOOTER
+   ========================================== */
+.home-cta-footer {
+  padding: 5rem 2rem;
+  background-color: #ffffff; /* Sfondo bianco pulito */
+  text-align: center;
+  position: relative;
+  z-index: 3;
+}
+
+.footer-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.home-cta-footer h2 {
+  font-size: 2.2rem;
+  color: #2b1629;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.home-cta-footer p {
+  font-size: 1.05rem;
+  color: #594155;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+/* Contenitore dei bottoni di azione */
+.footer-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+/* Pulsante Invia Email Secondario */
+.btn-email-footer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2.5rem;
+  background: #fff0f3; /* Rosa chiarissimo */
+  color: #ff4a85 !important; /* Testo rosa scuro */
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 74, 133, 0.15);
+  box-shadow: 0 4px 10px rgba(255, 74, 133, 0.02);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-email-footer:hover {
+  background: #ff4a85;
+  color: #ffffff !important; /* Passa a bianco all'hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 74, 133, 0.15);
+}
+
+/* Testo dei crediti sul copyright */
+.footer-credits {
+  font-size: 0.85rem !important;
+  color: #9c8298 !important;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(45, 19, 44, 0.06);
+  padding-top: 1.5rem;
+}
+
