@@ -46,6 +46,20 @@ export class Blog implements OnInit {
       tecnologie: ['JavaScript', 'GameLogic', 'WebApps'],
       linkGithub: 'https://github.com/IlariA-16/harry-potter-quiz.git',
       dataAggiornamento: 'Maggio 2026'
+    },
+    {
+      id: 5,
+      key: 'GAMEBOOK',
+      tecnologie: ['TypeScript', 'Engine Logic', 'JSON Data'],
+      linkGithub: 'https://github.com/IlariA-16/gamebook-engine.git',
+      dataAggiornamento: 'Maggio 2026'
+    },
+    {
+      id: 6,
+      key: 'MAISON',
+      tecnologie: ['HTML5', 'CSS Advanced', 'Responsive'],
+      linkGithub: 'https://github.com/IlariA-16/Maison-Ilaria.git',
+      dataAggiornamento: 'Maggio 2026'
     }
   ];
 
