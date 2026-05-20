@@ -20,6 +20,10 @@
     "PROJ1_DESC": "Housing search application with real-time filters and dynamic routing.",
     "PROJ2_TITLE": "Personal Portfolio Website",
     "PROJ2_DESC": "This web space developed with components to showcase my skills and projects.",
+    "PROJ5_TITLE": "gamebook-engine",
+    "PROJ5_DESC": "Logic engine developed in TypeScript for creating and managing interactive gamebooks and dynamic text adventures.",
+    "PROJ6_TITLE": "Maison-Ilaria",
+    "PROJ6_DESC": "Web-site structured and refined with CSS stylesheets to offer an elegant, responsive interface with attention to graphic details.",
     "SEE_GITHUB": "View on GitHub",
     "CTA_TITLE": "Interested in my work?",
     "CTA_SUBTITLE": "You can get in touch with me directly on the dedicated page or send me a quick email.",
@@ -91,6 +95,18 @@
         "STATUS": "Completed & Optimized",
         "CHALLENGE": "Creating an interactive score system with sequential question progression without reloading the page.",
         "SOLUTION": "Developing the game logic in vanilla JavaScript using arrays of objects, conditional flow handling, and dynamic UI rendering."
+      },
+      "GAMEBOOK": {
+        "NAME": "gamebook-engine",
+        "STATUS": "Completed & Optimized",
+        "CHALLENGE": "Develop a flexible logical architecture capable of parsing complex branching narratives without affecting rendering performance.",
+        "SOLUTION": "Utilized TypeScript for strict typing of story nodes and centralized game state management using structured patterns."
+      },
+      "MAISON": {
+        "NAME": "Maison-Ilaria",
+        "STATUS": "Completed & Optimized",
+        "CHALLENGE": "Design an elegant and high-impact visual interface while ensuring smoothness and pixel-perfect layout precision.",
+        "SOLUTION": "Implemented advanced layouts with CSS Grid and Flexbox, optimizing smooth transitions and complete style customization."
       }
     }
   },

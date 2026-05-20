@@ -20,6 +20,10 @@
     "PROJ1_DESC": "Applicazione per la ricerca di alloggi con filtri in tempo reale e routing dinamico.",
     "PROJ2_TITLE": "Sito Web Portfolio",
     "PROJ2_DESC": "Questo spazio web sviluppato a componenti per presentare le mie competenze e progetti.",
+    "PROJ5_TITLE": "gamebook-engine",
+    "PROJ5_DESC": "Motore logico sviluppato in TypeScript per la creazione e gestione di libri-game interattivi e avventure testuali dinamiche.",
+    "PROJ6_TITLE": "Maison-Ilaria",
+    "PROJ6_DESC": "Sito web strutturato e rifinito con fogli di stile CSS per offrire un'interfaccia elegante, responsive e curata nei dettagli grafici.",
     "SEE_GITHUB": "Vedi su GitHub",
     "CTA_TITLE": "Interessato ai miei lavori?",
     "CTA_SUBTITLE": "Puoi metterti in contatto con me direttamente nella pagina dedicata oppure inviarmi una mail rapida.",
@@ -91,6 +95,18 @@
         "STATUS": "Completato & Ottimizzato",
         "CHALLENGE": "Creare un sistema a punteggio interattivo con avanzamento sequenziale delle domande senza ricaricare la pagina.",
         "SOLUTION": "Sviluppo della logica di gioco in JavaScript puro mediante array di oggetti, gestione dei flussi condizionali e aggiornamento dinamico dell'interfaccia."
+      },
+      "GAMEBOOK": {
+        "NAME": "gamebook-engine",
+        "STATUS": "Completato & Ottimizzato",
+        "CHALLENGE": "Sviluppare un'architettura logica flessibile capace di interpretare bivi narrativi complessi senza appesantire il rendering.",
+        "SOLUTION": "Utilizzo di TypeScript per la tipizzazione rigida dei nodi di storia e gestione dello stato di gioco centralizzata tramite pattern strutturati."
+      },
+      "MAISON": {
+        "NAME": "Maison-Ilaria",
+        "STATUS": "Completato & Ottimizzato",
+        "CHALLENGE": "Progettare un'interfaccia elegante e ad alto impatto visivo garantendo fluidità e precisione millimetrica dei layout.",
+        "SOLUTION": "Implementazione di layout avanzati con CSS Grid e Flexbox, ottimizzazione delle transizioni fluide e personalizzazione completa degli stili."
       }
     }
   },
