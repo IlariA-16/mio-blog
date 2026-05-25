@@ -17,9 +17,12 @@
         <article class="blog-card">
           <div class="blog-card-meta">
             <span class="blog-project-name">// {{ 'BLOG.LOGS.' + log.key + '.NAME' | translate }}</span>
-            <span class="blog-status-tag" [class.completed]="log.key === 'HOMES' || log.key === 'PORTFOLIO' || log.key === 'CHECKLIST' || log.key === 'HPQUIZ' || log.key === 'GAMEBOOK' || log.key === 'MAISON'">
-              {{ 'BLOG.LOGS.' + log.key + '.STATUS' | translate }}
-            </span>
+            <span class="blog-status-tag" 
+            [class.completed]="log.key === 'HOMES' || log.key === 'CHECKLIST' || log.key === 'HPQUIZ' || log.key === 'GAMEBOOK' || log.key === 'MAISON'"
+            [class.updating]="log.key === 'PORTFOLIO'">
+            {{ 'BLOG.LOGS.' + log.key + '.STATUS' | translate }}
+          </span>
+
           </div>
           
           <div class="blog-card-body">

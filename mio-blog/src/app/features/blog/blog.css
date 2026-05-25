@@ -119,6 +119,11 @@
   background: #e6f7f0;
   color: #10b981;
 }
+.blog-status-tag.updating {
+  background: #e0f2fe; /* Sfondo azzurro chiaro */
+  color: #0369a1;      /* Testo azzurro scuro */
+}
+
 
 /* Corpo centrale della Card */
 .blog-card-body {
